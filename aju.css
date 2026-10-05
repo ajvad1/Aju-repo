@@ -1,0 +1,462 @@
+/* ============================================================
+   base.css - the styles every page of this portfolio shares.
+
+   Link this file FIRST in every page, then the page's own file:
+
+     <link rel="stylesheet" href="base.css">
+     <link rel="stylesheet" href="projects.css">
+
+   Change a value here and every page changes with it.
+   ============================================================ */
+
+/* ---- 1. The values you will want to edit ------------------ */
+:root {
+  --paper: #fcfbf7;   /* page background, like record paper */
+  --panel: #ffffff;   /* cards sit on white */
+  --rule: #dce3ec;    /* pale blue ruling and card borders */
+  --ink: #10151c;     /* headings and body text */
+  --muted: #5a6472;   /* second-line text */
+  --mark: #e23d28;    /* the red margin. Your one loud colour */
+
+  --font-display: "Bricolage Grotesque", "Segoe UI", sans-serif;
+  --font-body: "IBM Plex Sans", "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+
+  --page: 880px;      /* how wide the writing area gets */
+  --margin: 64px;     /* space kept for the red margin */
+  --radius: 10px;
+}
+
+/* ---- 2. Reset --------------------------------------------- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; }
+ul { list-style: none; }
+img { max-width: 100%; display: block; }
+
+/* ---- 3. The sheet: page area plus the red margin ---------- */
+.sheet {
+  max-width: var(--page);
+  margin: 0 auto;
+  padding: 72px 24px 96px;
+  position: relative;
+}
+
+/* The red line is drawn by the sheet itself, not by an image. */
+.sheet::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 24px;
+  width: 2px;
+  z-index: 6;              /* stays visible where the sticky nav passes */
+  background: var(--mark);
+  transform-origin: top center;
+  animation: draw-rule 0.7s ease-out both;
+}
+
+.entry {
+  padding-left: var(--margin);
+  padding-bottom: 84px;
+  scroll-margin-top: 76px;   /* so the sticky nav never covers a heading */
+}
+
+/* A tick on the margin, level with the entry heading. */
+.entry::before {
+  content: "";
+  position: absolute;
+  left: 20px;
+  width: 10px;
+  height: 10px;
+  margin-top: 14px;
+  border-radius: 2px;
+  background: var(--mark);
+  animation: fade-up 0.5s 0.5s ease-out both;
+}
+
+/* ---- 4. Headings and text --------------------------------- */
+.label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mark);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(30px, 5vw, 46px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin: 10px 0 14px;
+}
+
+.lede {
+  color: var(--muted);
+  font-size: 17px;
+  max-width: 56ch;
+}
+
+.entry-head { margin-bottom: 40px; }
+
+/* ---- 5. Small parts used on more than one page ------------ */
+.chip {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  padding: 5px 10px;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  color: var(--muted);
+  background: var(--panel);
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  padding: 22px 24px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* The red edge grows on hover - the margin rule, repeated small. */
+.card::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--mark);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.25s ease;
+}
+
+.card:hover { transform: translateY(-3px); box-shadow: 0 12px 24px -18px rgba(16, 21, 28, 0.5); }
+.card:hover::after { transform: scaleY(1); }
+
+.card-title { font-family: var(--font-display); font-size: 19px; font-weight: 600; }
+.card-meta { font-family: var(--font-mono); font-size: 12px; color: var(--muted); }
+.card-text { color: var(--muted); margin-top: 8px; }
+
+/* Text links keep a quiet underline that thickens on hover. */
+.link {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 2px;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+.link:hover { color: var(--mark); border-color: var(--mark); }
+
+.btn {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  text-decoration: none;
+  padding: 11px 18px;
+  border: 1px solid var(--ink);
+  border-radius: 8px;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+.btn:hover { background: var(--ink); color: var(--paper); transform: translateY(-2px); }
+.btn--mark { border-color: var(--mark); color: var(--mark); }
+.btn--mark:hover { background: var(--mark); color: #fff; }
+
+.foot {
+  padding-left: var(--margin);
+  padding-top: 28px;
+  margin-top: 56px;
+  border-top: 1px solid var(--rule);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* ---- 6. Movement ------------------------------------------ */
+@keyframes draw-rule { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* Anything with class="rise" fades up on load.
+   Add style="animation-delay: .1s" to make items arrive one by one. */
+.rise { animation: fade-up 0.6s ease-out both; }
+
+/* Newer browsers can run the same animation as you scroll,
+   with no JavaScript at all. Older ones simply show the content. */
+@supports (animation-timeline: view()) {
+  .reveal {
+    animation: fade-up 1s linear both;
+    animation-timeline: view();
+    animation-range: entry 5% cover 28%;
+  }
+}
+
+/* ---- 7. Small screens ------------------------------------- */
+@media (max-width: 640px) {
+  .sheet { padding: 48px 20px 72px; }
+  .sheet::before { left: 14px; }
+  .entry, .foot { padding-left: 26px; }
+  .entry::before { left: 10px; }
+}
+
+/* ---- 8. Respect the visitor's settings -------------------- */
+:focus-visible { outline: 2px solid var(--mark); outline-offset: 3px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ---- 9. The navigation that links your pages together ----- */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: var(--paper);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 14px 0 14px var(--margin);
+  margin-bottom: 42px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.nav-name {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.nav-links { display: flex; flex-wrap: wrap; gap: 18px; }
+
+.nav-links a {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--muted);
+  text-decoration: none;
+  padding-bottom: 3px;
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+.nav-links a:hover { color: var(--ink); border-color: var(--rule); }
+
+@media (max-width: 640px) {
+  .nav { padding-left: 26px; margin-bottom: 28px; }
+  .nav-links { gap: 14px; }
+}
+/* skills.css - styles used only by skills.html */
+
+.groups {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.group { padding: 22px 24px 24px; }
+
+/* The list of small pills. list-style is off in base.css. */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+/* Each pill lifts a little when the pointer is over it. */
+.chip { transition: transform 0.15s ease, border-color 0.15s ease, color 0.15s ease; }
+.chip:hover { transform: translateY(-2px); border-color: var(--mark); color: var(--ink); }
+
+.aside {
+  margin-top: 32px;
+  color: var(--muted);
+  font-size: 15px;
+  max-width: 56ch;
+}
+
+@media (max-width: 640px) {
+  .groups { grid-template-columns: 1fr; }
+}
+/* projects.css - styles used only by projects.html */
+
+.projects {
+  display: grid;
+  gap: 18px;
+}
+
+.project { padding: 24px 26px; }
+
+.project-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px 16px;
+  margin-bottom: 10px;
+}
+
+/* The second paragraph is the honest one, so it is set apart. */
+.project-learn {
+  margin-top: 12px;
+  padding-left: 14px;
+  border-left: 2px solid var(--rule);
+  font-size: 15px;
+}
+
+.project:hover .project-learn { border-color: var(--mark); }
+
+.project-links {
+  display: flex;
+  gap: 18px;
+  margin-top: 16px;
+}
+
+.aside { margin-top: 32px; }
+/* experience.css - styles used only by experience.html */
+
+.timeline {
+  display: grid;
+  gap: 18px;
+}
+
+/* Date on the left, the card on the right. */
+.row {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+
+.row-when {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--muted);
+  padding-top: 24px;
+}
+
+.row-body { padding: 22px 24px; }
+
+.points { margin-top: 12px; display: grid; gap: 6px; }
+
+.points li {
+  position: relative;
+  padding-left: 18px;
+  color: var(--muted);
+}
+
+/* A small red dash instead of a bullet. */
+.points li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 12px;
+  width: 8px;
+  height: 2px;
+  background: var(--mark);
+}
+
+@media (max-width: 640px) {
+  .row { grid-template-columns: 1fr; gap: 6px; }
+  .row-when { padding-top: 0; }
+}
+/* education.css - styles used only by education.html */
+
+.degrees { display: grid; gap: 18px; }
+
+.degree { padding: 22px 24px; }
+.degree .card-title { margin: 4px 0 6px; }
+
+.coursework, .certs { margin-top: 44px; }
+
+.note-title {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { transition: transform 0.15s ease, border-color 0.15s ease; }
+.chip:hover { transform: translateY(-2px); border-color: var(--mark); }
+
+.cert-list { display: grid; gap: 10px; }
+
+.cert-list li {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--rule);
+}
+/* contact.css - styles used only by contact.html */
+
+.channels {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.channel { padding: 20px 22px; }
+
+.channel-value {
+  display: inline-block;
+  margin-top: 4px;
+  font-weight: 500;
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 2px;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.channel:hover .channel-value { color: var(--mark); border-color: var(--mark); }
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 32px;
+}
+
+.aside {
+  margin-top: 28px;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.aside code {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  background: var(--panel);
+  border: 1px solid var(--rule);
+  border-radius: 5px;
+  padding: 1px 6px;
+}
+
+@media (max-width: 640px) {
+  .channels { grid-template-columns: 1fr; }
+}

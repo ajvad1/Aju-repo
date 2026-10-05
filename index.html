@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <Link rel="stylesheet" href="aju.css"/>
+</head>
+<body>
+        <section class="entry" id="home">
+
+      <!-- class="rise" fades an element up when the page loads.
+           The delay makes them arrive one after another. -->
+      <header class="entry-head">
+        <p class="label rise">Portfolio &middot; B.Tech CSE &middot; 2026</p>
+        <h1 class="title rise" style="animation-delay: .06s">Ajvad T K</h1>
+        <p class="lede rise" style="animation-delay: .12s">
+          Final-year Computer Science student. I build web apps and small
+          tools, and I spend most of my time on the part where they get
+          faster.
+        </p>
+      </header>
+
+      <!-- Four quick facts. Replace them with your own. -->
+      <dl class="facts rise" style="animation-delay: .18s">
+        <div class="fact">
+          <dt>Course</dt>
+          <dd>B.Tech, Computer Science</dd>
+        </div> 
+        <div class="fact">
+          <dt>College</dt>
+          <dd>ABC Engineering College</dd>
+        </div>
+        <div class="fact">
+          <dt>Graduating</dt>
+          <dd>May 2027</dd>
+        </div>
+        <div class="fact">
+          <dt>Open to</dt>
+          <dd>Internships, full-time roles</dd>
+        </div>
+      </dl>
+
+      <div class="actions rise" style="animation-delay: .24s">
+        <a class="btn btn--mark" href="#projects">See my projects</a>
+        <a class="btn" href="mailto:aditya@example.com">Email me</a>
+        <a class="link" href="https://github.com/">GitHub</a>
+        <a class="link" href="https://linkedin.com/">LinkedIn</a>
+      </div>
+
+    </section>
+        <section class="entry" id="skills">
+
+      <header class="entry-head">
+        <p class="label">Entry 02</p>
+        <h2 class="title">Skills</h2>
+        <p class="lede">
+          What I can use without looking things up, and what I am still
+          learning. No percentage bars &mdash; nobody knows what 82% of Java
+          means.
+        </p>
+      </header>
+
+      <div class="groups">
+
+        <div class="card group reveal">
+          <h3 class="card-title">Languages</h3>
+          <ul class="chips">
+            <li><span class="chip">Python</span></li>
+            <li><span class="chip">Java</span></li>
+            <li><span class="chip">C</span></li>
+            <li><span class="chip">JavaScript</span></li>
+            <li><span class="chip">SQL</span></li>
+          </ul>
+        </div>
+
+        <div class="card group reveal">
+          <h3 class="card-title">Web</h3>
+          <ul class="chips">
+            <li><span class="chip">HTML</span></li>
+            <li><span class="chip">CSS</span></li>
+            <li><span class="chip">React</span></li>
+            <li><span class="chip">Node.js</span></li>
+            <li><span class="chip">REST APIs</span></li>
+          </ul>
+        </div>
+
+        <div class="card group reveal">
+          <h3 class="card-title">Tools</h3>
+          <ul class="chips">
+            <li><span class="chip">Git &amp; GitHub</span></li>
+            <li><span class="chip">Linux</span></li>
+            <li><span class="chip">MySQL</span></li>
+            <li><span class="chip">Figma</span></li>
+            <li><span class="chip">VS Code</span></li>
+          </ul>
+        </div>
+
+        <div class="card group reveal">
+          <h3 class="card-title">Learning now</h3>
+          <ul class="chips">
+            <li><span class="chip">Docker</span></li>
+            <li><span class="chip">System design</span></li>
+            <li><span class="chip">TypeScript</span></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <p class="aside">
+        Keep this list honest. In an interview you will be asked about every
+        word on it.
+      </p>
+
+    </section>
+        <section class="entry" id="projects">
+
+      <header class="entry-head">
+        <p class="label">Entry 03</p>
+        <h2 class="title">Projects</h2>
+        <p class="lede">
+          Three things I built, what problem each one solved, and what I got
+          wrong the first time.
+        </p>
+      </header>
+
+      <div class="projects">
+
+        <article class="card project reveal">
+          <div class="project-head">
+            <h3 class="card-title">Campus Events</h3>
+            <p class="card-meta">React &middot; Node.js &middot; MySQL</p>
+          </div>
+          <p class="card-text">
+            One place for every club notice on campus, so students stop
+            missing deadlines buried in group chats. Around 400 students use
+            it during fest week.
+          </p>
+          <p class="card-text project-learn">
+            First version stored events in a JSON file. It broke the day two
+            people added an event at once.
+          </p>
+          <div class="project-links">
+            <a class="link" href="https://github.com/">Code</a>
+            <a class="link" href="https://example.com/">Live site</a>
+          </div>
+        </article>
+
+        <article class="card project reveal">
+          <div class="project-head">
+            <h3 class="card-title">CSV Cleaner</h3>
+            <p class="card-meta">Python &middot; Click &middot; pandas</p>
+          </div>
+          <p class="card-text">
+            A command-line tool that fixes the spreadsheets our lab keeps
+            producing: stray spaces, mixed date formats, duplicate rows.
+          </p>
+          <p class="card-text project-learn">
+            Learned to write tests here, after it silently deleted a column.
+          </p>
+          <div class="project-links">
+            <a class="link" href="https://github.com/">Code</a>
+          </div>
+        </article>
+
+        <article class="card project reveal">
+          <div class="project-head">
+            <h3 class="card-title">Attendance Scanner</h3>
+            <p class="card-meta">Python &middot; OpenCV &middot; Flask</p>
+          </div>
+          <p class="card-text">
+            Marks attendance from a photo of the class, then exports a sheet
+            the department can actually open. Built for a mini project, kept
+            because two teachers asked for it.
+          </p>
+          <p class="card-text project-learn">
+            Accuracy went from unusable to fine once I fixed the lighting,
+            not the model.
+          </p>
+          <div class="project-links">
+            <a class="link" href="https://github.com/">Code</a>
+          </div>
+        </article>
+
+      </div>
+
+      <p class="aside">
+        <a class="link" href="https://github.com/">Everything else lives on GitHub &rarr;</a>
+      </p>
+
+    </section>
+        <section class="entry" id="experience">
+
+      <header class="entry-head">
+        <p class="label">Entry 04</p>
+        <h2 class="title">Experience</h2>
+        <p class="lede">
+          Internships, and the club work that taught me as much as they did.
+        </p>
+      </header>
+
+      <ol class="timeline">
+
+        <li class="row reveal">
+          <p class="row-when">Jun &ndash; Aug 2025</p>
+          <div class="card row-body">
+            <h3 class="card-title">Web Development Intern</h3>
+            <p class="card-meta">Trivandrum Software Labs</p>
+            <ul class="points">
+              <li>Built four screens of an internal dashboard in React, from Figma files.</li>
+              <li>Cut one report page from 6s to 1.2s by paginating the query.</li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="row reveal">
+          <p class="row-when">2024 &ndash; 2025</p>
+          <div class="card row-body">
+            <h3 class="card-title">Technical Lead, Coding Club</h3>
+            <p class="card-meta">College of Engineering</p>
+            <ul class="points">
+              <li>Ran weekly problem-solving sessions for 60 juniors.</li>
+              <li>Organised a 24-hour hackathon with 22 teams.</li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="row reveal">
+          <p class="row-when">Dec 2024</p>
+          <div class="card row-body">
+            <h3 class="card-title">Open source, first pull request</h3>
+            <p class="card-meta">Hacktoberfest</p>
+            <ul class="points">
+              <li>Fixed a documentation bug, then a real one. Both got merged.</li>
+            </ul>
+          </div>
+        </li>
+
+      </ol>
+
+    </section>
+        <section class="entry" id="education">
+
+      <header class="entry-head">
+        <p class="label">Entry 05</p>
+        <h2 class="title">Education</h2>
+        <p class="lede">
+          Where I studied, and the subjects I actually use.
+        </p>
+      </header>
+
+      <div class="degrees">
+
+        <article class="card degree reveal">
+          <p class="card-meta">2022 &ndash; 2026</p>
+          <h3 class="card-title">B.Tech, Computer Science and Engineering</h3>
+          <p class="card-text">College of Engineering &middot; CGPA 8.4 / 10</p>
+        </article>
+
+        <article class="card degree reveal">
+          <p class="card-meta">2020 &ndash; 2022</p>
+          <h3 class="card-title">Higher Secondary, Science</h3>
+          <p class="card-text">Govt. Higher Secondary School &middot; 92%</p>
+        </article>
+
+      </div>
+
+      <div class="coursework reveal">
+        <h3 class="note-title">Coursework I lean on</h3>
+        <ul class="chips">
+          <li><span class="chip">Data Structures</span></li>
+          <li><span class="chip">Algorithms</span></li>
+          <li><span class="chip">Operating Systems</span></li>
+          <li><span class="chip">Databases</span></li>
+          <li><span class="chip">Computer Networks</span></li>
+          <li><span class="chip">Machine Learning</span></li>
+        </ul>
+      </div>
+
+      <div class="certs reveal">
+        <h3 class="note-title">Certificates</h3>
+        <ul class="cert-list">
+          <li><span>Meta Front-End Developer</span> <span class="card-meta">Coursera, 2025</span></li>
+          <li><span>Networking Basics</span> <span class="card-meta">Cisco, 2024</span></li>
+        </ul>
+      </div>
+
+    </section>
+        <section class="entry" id="contact">
+
+      <header class="entry-head">
+        <p class="label">Entry 06</p>
+        <h2 class="title">Contact</h2>
+        <p class="lede">
+          The fastest way to reach me is email. I reply within a day.
+        </p>
+      </header>
+
+      <!-- Real links, no form. A form needs a server; these work today. -->
+      <ul class="channels">
+        <li class="card channel reveal">
+          <p class="card-meta">Email</p>
+          <a class="channel-value" href="mailto:aditya@example.com">aditya@example.com</a>
+        </li>
+        <li class="card channel reveal">
+          <p class="card-meta">Phone</p>
+          <a class="channel-value" href="tel:+919000000000">+91 90000 00000</a>
+        </li>
+        <li class="card channel reveal">
+          <p class="card-meta">GitHub</p>
+          <a class="channel-value" href="https://github.com/">github.com/your-username</a>
+        </li>
+        <li class="card channel reveal">
+          <p class="card-meta">LinkedIn</p>
+          <a class="channel-value" href="https://linkedin.com/">linkedin.com/in/your-name</a>
+        </li>
+      </ul>
+
+      <div class="actions">
+        <a class="btn btn--mark" href="mailto:aditya@example.com?subject=Hello%20Aditya">Write to me</a>
+        <a class="btn" href="resume.pdf">Download resume</a>
+      </div>
+
+      <p class="aside">
+        Put your resume next to <code>index.html</code> and name it
+        <code>resume.pdf</code>, and the button above will open it.
+      </p>
+
+    </section>
+</body>
+</html>
